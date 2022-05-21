@@ -1,49 +1,56 @@
 // Assignment code here
 
-
-var passLength = 0;
-var charSet = "";
-var lowercase = "acdefghijklmnnopqrstuvwxyz";
-var uppercase = "ABCDEFGHIJKLMNNOPQRSTUVWXYZ";
-var numeric = "123456789";
-var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-
-
-
-var passLength = function() { 
-  var passLength = window.prompt("How many characters would you like to include in your password? Please choose a number between 8 and 128!");
-  if (passLength < 8 || passLength > 128) {
-    window.alert("Please enter vaild number.");
-    passLength();
-  }
-};
-
-var passCriteria = function () {
-  lowercase = window.confirm("Would you like to include lowercase letters?")
-    if (lowercase = true) {
-      uppercase = window.confirm("Would you like to include uppercase letters?");
-
-    if (uppercase = true)
-      numeric = window.confirm("Would you like to include numbers?");
-      
-    if (numeric = true)
-      special = window.confirm("Would you like to include special characters?");
-    } 
-    else {
-      window.alert("You must include at least one option.")
-  }
-};
-
 var generatePassword = function () {
-  passLength(), 
-  passCriteria();
+  var passLength = 0;
+  var charSet = "";
+  var lowercase = "abcdefghijklmnnopqrstuvwxyz";
+  var uppercase = "ABCDEFGHIJKLMNNOPQRSTUVWXYZ";
+  var numeric = "123456789";
+  var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+
+  // prompt for password length/check for length
+  do {
+    passLength = window.prompt("How many characters would you like? Minimum of 8 and Maximum of 128");
+    // creating expression to see if passLength is not a number
+    if (passLength < 8 || passLength > 128) {
+      // alerts uers if entry is not between 8 and 128
+      alert("You must enter in a number between 8 and 128!");
+    }
+  } while (passLength < 8 || passLength > 128);
+
+
+  // prompt for password criteria
+  var promptLower = window.confirm("Would you like to include lowercase letters?")
+  var promptUpper = window.confirm("Would you like to include uppercase letters?")
+  var promptNum = window.confirm("Would you like to include numbers?")
+  var promptSpecial = window.confirm("Would you like to include special characters?")
+ 
+  // add selected criteria to password pool 
+  if (promptLower) {
+    charSet += lowercase
+  }
+
+  if (promptUpper) {
+    charSet += uppercase
+  }
+
+  if (promptNum) {
+    charSet += numeric
+  }
+
+  if (promptSpecial) {
+    charSet += special
+  }
+
+  console.log(charSet)
+  // generate password from selected criteria
+  var newPass = "";
+  for (var i = 0; i < passLength; i++) {
+    newPass += charSet[Math.floor(Math.random() * charSet.length)]
+  }
+  console.log(newPass)
+  return newPass;
 };
-
-
-
-
-
-
 
 
 // Get references to the #generate element

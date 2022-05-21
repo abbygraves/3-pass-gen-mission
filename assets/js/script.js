@@ -18,31 +18,37 @@ var generatePassword = function () {
     }
   } while (passLength < 8 || passLength > 128);
 
+  do {
+    // prompt for password criteria
+    var promptLower = window.confirm("Would you like to include lowercase letters?")
+    var promptUpper = window.confirm("Would you like to include uppercase letters?")
+    var promptNum = window.confirm("Would you like to include numbers?")
+    var promptSpecial = window.confirm("Would you like to include special characters?")
+  
 
-  // prompt for password criteria
-  var promptLower = window.confirm("Would you like to include lowercase letters?")
-  var promptUpper = window.confirm("Would you like to include uppercase letters?")
-  var promptNum = window.confirm("Would you like to include numbers?")
-  var promptSpecial = window.confirm("Would you like to include special characters?")
- 
-  // add selected criteria to password pool 
-  if (promptLower) {
-    charSet += lowercase
-  }
+    // add selected criteria to password pool 
+    if (promptLower) {
+      charSet += lowercase
+    }
 
-  if (promptUpper) {
-    charSet += uppercase
-  }
+    if (promptUpper) {
+      charSet += uppercase
+    }
 
-  if (promptNum) {
-    charSet += numeric
-  }
+    if (promptNum) {
+      charSet += numeric
+    }
 
-  if (promptSpecial) {
-    charSet += special
-  }
-
+    if (promptSpecial) {
+      charSet += special
+    }
+    if (!promptLower && !promptUpper && !promptNum && !promptSpecial) {
+      window.alert("You must select at least one criteria.")
+    }
+  } while (!promptLower && !promptUpper && !promptNum && !promptSpecial)
   console.log(charSet)
+
+
   // generate password from selected criteria
   var newPass = "";
   for (var i = 0; i < passLength; i++) {

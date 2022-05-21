@@ -1,33 +1,41 @@
 // Assignment code here
 
 
-var charSet = "";
 var passLength = 0;
+var charSet = "";
 var lowercase = "acdefghijklmnnopqrstuvwxyz";
 var uppercase = "ABCDEFGHIJKLMNNOPQRSTUVWXYZ";
 var numeric = "123456789";
-//var special =
+var special = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 
 
 var passLength = function() { 
-  passLength = window.prompt("How many characters would you like to include in your password? Please choose a number between 8 and 128!");
+  var passLength = window.prompt("How many characters would you like to include in your password? Please choose a number between 8 and 128!");
   if (passLength < 8 || passLength > 128) {
-    window.alert("enter vaild");
-  };
+    window.alert("Please enter vaild number.");
+    passLength();
+  }
 };
 
 var passCriteria = function () {
   lowercase = window.confirm("Would you like to include lowercase letters?")
-  if (lowercase = true) {
-    console.log(lowercase);
+    if (lowercase = true) {
+      uppercase = window.confirm("Would you like to include uppercase letters?");
+
+    if (uppercase = true)
+      numeric = window.confirm("Would you like to include numbers?");
+      
+    if (numeric = true)
+      special = window.confirm("Would you like to include special characters?");
+    } 
+    else {
+      window.alert("You must include at least one option.")
   }
 };
 
-
-
 var generatePassword = function () {
-  passLength(),
+  passLength(), 
   passCriteria();
 };
 

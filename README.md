@@ -14,9 +14,7 @@ The purpose of this project was to create a password generator that gives the us
 <img align="right" src="assets/images/password-generator.png" width="450px" />
 
 <br/>
-<br/>
-<br/>
-<br/>
+
 
 ## **What I Did**
 + Created variales for each of the required password criteria

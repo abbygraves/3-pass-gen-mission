@@ -10,10 +10,12 @@ The purpose of this project was to create a password generator that gives the us
 ## **Built With:**
 + HTML
 + CSS 
-+ JavaScript
++ JavaScript 
+<img align="right" src="assets/images/password-generator.png" width="450px" />
 
-<img align="right" src="assets/images/password-generator.png" width="700px" />
-
+<br/>
+<br/>
+<br/>
 <br/>
 
 ## **What I Did**
